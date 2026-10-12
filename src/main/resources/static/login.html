@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donor Management - Login</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #7f0000, #d7193f);
+        }
+
+        .card {
+            width: 100%;
+            max-width: 420px;
+            padding: 32px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px #0003;
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 44px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #b00020;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin: 16px 0 7px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #b00020;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #850019;
+        }
+
+        #message {
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .back {
+            display: block;
+            margin-top: 18px;
+            text-align: center;
+            color: #b00020;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="card">
+        <div class="logo">🩸</div>
+
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Blood Donor Management System</p>
+
+        <form id="loginForm">
+            <label for="role">Login as</label>
+            <select id="role" required>
+                <option value="DONOR">Donor</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+
+            <label for="username">Username</label>
+            <input
+                id="username"
+                type="text"
+                placeholder="Enter your username"
+                autocomplete="username"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button id="loginButton" type="submit">Login</button>
+
+            <p id="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <a class="back" href="/index.html">Back to Dashboard</a>
+    </main>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const message = document.getElementById("message");
+        const loginButton = document.getElementById("loginButton");
+
+        loginForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value;
+            const role = document.getElementById("role").value;
+
+            message.textContent = "Checking login...";
+            message.style.color = "#555";
+            loginButton.disabled = true;
+
+            try {
+                const response = await fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password,
+                        role: role
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    message.textContent =
+                        "Login successful! Opening dashboard...";
+                    message.style.color = "green";
+
+                    setTimeout(function() {
+                        window.location.href = "/index.html";
+                    }, 1000);
+                } else {
+                    message.textContent =
+                        result.message || "Login failed. Check your details.";
+                    message.style.color = "#b00020";
+                    loginButton.disabled = false;
+                }
+            } catch (error) {
+                message.textContent =
+                    "Cannot connect to the backend. Check that the server is running.";
+                message.style.color = "#b00020";
+                loginButton.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

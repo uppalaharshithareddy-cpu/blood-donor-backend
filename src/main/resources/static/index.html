@@ -1,0 +1,784 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donor Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+      color: #222;
+    }
+    header {
+      background: #b71c1c;
+      color: white;
+      text-align: center;
+      padding: 24px;
+    }
+   
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 5px 18px rgba(38, 50, 56, 0.08);
+  border: 1px solid #eeeeee;
+  margin-bottom: 24px;
+}
+
+    h2 { color: #b71c1c; }
+    label {
+      display: block;
+      margin-top: 14px;
+    }
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 11px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      background: #b71c1c;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: #8e1515; }
+    #message { margin-top: 16px; }
+    /* Blood Donor Management System - Modern Design */
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  
+background: linear-gradient(135deg, #ffe0e0, #e3edff);
+
+  color: #263238;
+  margin: 0;
+  padding: 25px;
+  line-height: 1.6;
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 8px;
+  font-size: 32px;
+}
+
+
+
+h2 {
+  color: #b71c1c;
+  margin-top: 20px;
+  margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+
+
+h3 {
+  color: #37474f;
+}
+
+form,
+#donorList,
+#donorList > div {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+form {
+  padding: 28px;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eeeeee;
+}
+
+
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px 14px;
+  margin: 8px 0 16px;
+  border: 1px solid #d5dce5;
+  border-radius: 8px;
+  font: inherit;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #ef9a9a;
+  border-color: #c62828;
+}
+
+button {
+  background: #c62828;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 18px;
+  margin: 5px 5px 5px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+
+button {
+  background: linear-gradient(135deg, #c62828, #e53935);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(198, 40, 40, 0.18);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #a71919, #c62828);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(198, 40, 40, 0.25);
+}
+
+
+#donorList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+
+#donorList > div {
+  padding: 22px;
+  border: 1px solid #e8eaf0;
+  border-top: 4px solid #c62828;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  overflow-wrap: anywhere;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#donorList > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.10);
+}
+
+
+
+#donorList h3 {
+  color: #b71c1c;
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+#donorList p {
+  color: #455a64;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  form {
+    padding: 16px;
+  }
+}
+header {
+  background: linear-gradient(135deg, #b71c1c, #ef5350);
+  color: #ffffff;
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 16px rgba(183, 28, 28, 0.2);
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+header p {
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0;
+  opacity: 0.95;
+}
+/* Dashboard statistics cards */
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eeeeee;
+  border-top: 4px solid #c62828;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h2 {
+  margin: 0 0 8px;
+  color: #c62828;
+  font-size: 30px;
+}
+
+.stat-card p {
+  margin: 0;
+  color: #546e7a;
+  font-size: 15px;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Blood Donor Management System</h1>
+    <p>Every blood donation can make a difference.</p>
+  </header>
+
+  <main>
+    
+<section class="card" style="margin-bottom: 24px;">
+  <h2>Dashboard</h2>
+  <p id="lastUpdated" style="color: #666; font-size: 13px;">
+  Last updated: Waiting for data...
+</p>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px;">
+  <div style="background: #fff1f1; padding: 22px; border-radius: 12px; border-top: 4px solid #c62828; text-align: center; box-shadow: 0 4px 12px #0001;">
+    <p style="margin: 0; color: #555;">Total Donors</p>
+    <h2 id="totalDonors" style="font-size: 32px; margin: 8px 0; color: #c62828;">0</h2>
+  </div>
+
+  <div style="background: #eef8ee; padding: 22px; border-radius: 12px; border-top: 4px solid #2e7d32; text-align: center; box-shadow: 0 4px 12px #0001;">
+    <p style="margin: 0; color: #555;">Available Donors</p>
+    <h2 id="availableDonors" style="font-size: 32px; margin: 8px 0; color: #2e7d32;">0</h2>
+  </div>
+
+  <div style="background: #eef4ff; padding: 22px; border-radius: 12px; border-top: 4px solid #1565c0; text-align: center; box-shadow: 0 4px 12px #0001;">
+    <p style="margin: 0; color: #555;">Blood Groups</p>
+    <h2 id="bloodGroupCount" style="font-size: 32px; margin: 8px 0; color: #1565c0;">0</h2>
+  </div>
+</div>
+</section>
+
+    <section class="card">
+      <h2>Register as a Donor</h2>
+      <form id="donorForm">
+        <label for="name">Full Name</label>
+        <input id="name" required>
+
+        <label for="age">Age</label>
+       <input id="age" type="number" min="18" max="100" required>
+
+        <label for="gender">Gender</label>
+        <select id="gender" required>
+          <option value="">Select gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+
+        <label for="bloodGroup">Blood Group</label>
+        <select id="bloodGroup" required>
+          <option value="">Select blood group</option>
+          <option>A+</option><option>A-</option>
+          <option>B+</option><option>B-</option>
+          <option>AB+</option><option>AB-</option>
+          <option>O+</option><option>O-</option>
+        </select>
+
+        <label for="city">City</label>
+        <input id="city" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" required>
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" required>
+
+        <label>
+          <input id="available" type="checkbox" style="width:auto">
+          Available to donate
+        </label>
+
+        <button type="submit">Register Donor</button>
+      </form>
+      <p id="message" role="status"></p>
+    </section>
+    
+<section class="card" style="margin-top: 24px;">
+  <h2>Registered Donors</h2>
+  
+<button type="button" onclick="loadDonors()">
+  🔄 Refresh Donors
+</button>
+
+<label for="searchBloodGroup">Filter by Blood Group</label>
+<select id="searchBloodGroup">
+  <option value="">All Blood Groups</option>
+  <option>A+</option>
+  <option>A-</option>
+  <option>B+</option>
+  <option>B-</option>
+  <option>AB+</option>
+  <option>AB-</option>
+  <option>O+</option>
+  <option>O-</option>
+</select>
+
+<label for="searchCity">Filter by City</label>
+<input id="searchCity" placeholder="Enter city, e.g. Hyderabad">
+<button type="button" id="searchDonors">Search Donors</button>
+
+<button type="button" id="clearFilters">Clear Filters</button>
+
+<label for="searchAvailability">Donation Availability</label>
+<select id="searchAvailability">
+  <option value="">All Donors</option>
+  <option value="true">Available</option>
+  <option value="false">Not Available</option>
+</select>
+
+
+  
+  <p id="donorListMessage" role="status"></p>
+  <div id="donorList"></div>
+</section>
+
+  </main>
+
+  <script>
+    const form = document.getElementById("donorForm");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      const donor = {
+        name: document.getElementById("name").value,
+        age: Number(document.getElementById("age").value),
+        gender: document.getElementById("gender").value,
+        bloodGroup: document.getElementById("bloodGroup").value,
+        city: document.getElementById("city").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        available: document.getElementById("available").checked
+      };
+
+      message.textContent = "Submitting...";
+
+      try {
+        const response = await fetch("http://localhost:8081/api/donors", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(donor)
+        });
+
+        if (!response.ok) {
+          throw new Error("Request failed with status " + response.status);
+        }
+
+        message.textContent = "Donor registered successfully!";
+        form.reset();
+      } catch (error) {
+        message.textContent =
+          "Could not register donor. Check that the backend is running and CORS is configured.";
+      }
+    });
+    
+const loadDonorsButton = document.getElementById("loadDonors");
+const donorList = document.getElementById("donorList");
+const donorListMessage = document.getElementById("donorListMessage");
+
+let allDonors = [];
+async function loadDonors() {
+  donorListMessage.textContent = "Loading donors...";
+  donorList.innerHTML = "";
+
+  try {
+    const response = await fetch("http://localhost:8081/api/donors");
+
+    if (!response.ok) {
+      throw new Error("Could not load donors");
+    }
+
+    
+
+allDonors = await response.json();
+
+document.getElementById("lastUpdated").textContent =
+  "Last updated: " + new Date().toLocaleTimeString();
+
+updateDashboard();
+console.log(allDonors);
+
+const donors = allDonors;
+
+    
+    if (donors.length === 0) {
+      donorListMessage.textContent = "No donors registered yet.";
+      return;
+    }
+
+    donorListMessage.textContent = "Total donors: " + donors.length;
+
+    donors.forEach(function(donor) {
+      const card = document.createElement("div");
+      card.style.cssText =
+        "border:1px solid #ddd; padding:14px; margin-top:12px; border-radius:8px;";
+
+      const name = document.createElement("h3");
+      name.textContent = donor.name || "Unnamed donor";
+      const details = document.createElement("p");
+
+     
+details.textContent =
+  "Blood Group: " + (donor.bloodGroup || "N/A") +
+  " | City: " + (donor.city || "N/A") +
+  " | Age: " + donor.age +
+  " | Gender: " + (donor.gender || "N/A") +
+  " | Phone: " + (donor.phone || "N/A") +
+  " | Email: " + (donor.email || "N/A") +
+  " | Available: " + (donor.available ? "Yes" : "No");
+      
+card.appendChild(name);
+card.appendChild(details);
+
+
+const editButton = document.createElement("button");
+editButton.textContent = "Edit Donor";
+editButton.style.marginRight = "10px";
+
+
+editButton.addEventListener("click", async function() {
+  const newName = prompt("Enter donor name:", donor.name);
+  if (newName === null || newName.trim() === "") return;
+
+  const newAge = prompt("Enter donor age:", donor.age);
+  if (newAge === null || newAge.trim() === "") return;
+
+  const newBloodGroup = prompt(
+    "Enter blood group:",
+    donor.blood_group
+  );
+  if (newBloodGroup === null || newBloodGroup.trim() === "") return;
+
+  const newGender = prompt("Enter gender:", donor.gender);
+  if (newGender === null || newGender.trim() === "") return;
+
+  const newPhone = prompt("Enter phone number:", donor.phone);
+  if (newPhone === null || newPhone.trim() === "") return;
+
+  const newEmail = prompt("Enter email:", donor.email);
+  if (newEmail === null || newEmail.trim() === "") return;
+
+  const newCity = prompt("Enter city:", donor.city);
+  if (newCity === null || newCity.trim() === "") return;
+
+  const newAvailable = confirm(
+    "Is this donor available to donate blood? Click OK for Yes or Cancel for No."
+  );
+
+  const updatedDonor = {
+    ...donor,
+    name: newName.trim(),
+    age: Number(newAge),
+    bloodGroup: newBloodGroup.trim(),
+    gender: newGender.trim(),
+    phone: newPhone.trim(),
+    email: newEmail.trim(),
+    city: newCity.trim(),
+    available: newAvailable
+  };
+
+  try {
+    const response = await fetch(
+      "http://localhost:8081/api/donors/" + donor.id,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(updatedDonor)
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Update failed");
+    }
+
+    alert("Donor updated successfully!");
+    await loadDonors();
+  } catch (error) {
+    alert("Could not update donor. Please check the backend.");
+  }
+});
+
+
+const deleteButton = document.createElement("button");
+deleteButton.textContent = "Delete Donor";
+deleteButton.style.background = "#8e1515";
+
+deleteButton.addEventListener("click", async function() {
+  const confirmed = confirm(
+    "Are you sure you want to delete " + donor.name + "?"
+  );
+
+  if (!confirmed) return;
+
+  try {
+    const response = await fetch(
+      "http://localhost:8081/api/donors/" + donor.id,
+      { method: "DELETE" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Delete failed");
+    }
+
+    alert("Donor deleted successfully!");
+    await loadDonors();
+  } catch (error) {
+    alert("Could not delete donor. Please check the backend.");
+  }
+});
+
+card.appendChild(editButton);
+card.appendChild(deleteButton);
+donorList.appendChild(card);
+});
+
+} catch (error) {
+  donorListMessage.textContent =
+    "Could not load donors. Check that the backend is running.";
+}
+}
+
+loadDonors();
+
+setInterval(loadDonors, 10000);
+
+
+
+function updateDashboard() {
+  document.getElementById("totalDonors").textContent =
+    allDonors.length;
+
+  const availableCount = allDonors.filter(function(donor) {
+    return donor.available === true;
+  }).length;
+
+  document.getElementById("availableDonors").textContent =
+    availableCount;
+
+  const bloodGroups = new Set(
+    allDonors.map(function(donor) {
+      return donor.bloodGroup;
+    }).filter(Boolean)
+  );
+
+  document.getElementById("bloodGroupCount").textContent =
+    bloodGroups.size;
+}
+
+document.getElementById("searchDonors").addEventListener("click", function() {
+  const bloodGroup = document.getElementById("searchBloodGroup").value;
+  const city = document.getElementById("searchCity").value.trim().toLowerCase();
+  const availability = document.getElementById("searchAvailability").value;
+
+  const filteredDonors = allDonors.filter(function(donor) {
+    const matchesBloodGroup =
+      !bloodGroup || donor.bloodGroup === bloodGroup;
+
+    const matchesCity =
+      !city || (donor.city || "").toLowerCase().includes(city);
+
+    const matchesAvailability =
+  availability === "" || donor.available === (availability === "true");
+
+return matchesBloodGroup && matchesCity && matchesAvailability;
+  });
+
+  donorList.innerHTML = "";
+  donorListMessage.textContent =
+    "Matching donors: " + filteredDonors.length;
+
+  
+filteredDonors.forEach(function(donor) {
+  const card = document.createElement("div");
+  card.style.cssText =
+    "border:1px solid #ddd; padding:14px; margin-top:12px; border-radius:8px;";
+
+  const name = document.createElement("h3");
+  name.textContent = donor.name || "Unnamed donor";
+
+  const details = document.createElement("p");
+  details.textContent =
+    "Blood Group: " + (donor.blood_group || donor.bloodGroup || "N/A") +
+    " | City: " + (donor.city || "N/A") +
+    " | Age: " + (donor.age ?? "N/A") +
+    " | Gender: " + (donor.gender || "N/A") +
+    " | Phone: " + (donor.phone || "N/A") +
+    " | Email: " + (donor.email || "N/A") +
+    " | Available: " + (donor.available ? "Yes" : "No");
+
+  const editButton = document.createElement("button");
+  editButton.textContent = "Edit Donor";
+  editButton.style.cssText =
+    "background:#c21d1d;color:white;padding:10px 16px;border:0;border-radius:6px;margin-right:10px;cursor:pointer;";
+
+  editButton.addEventListener("click", async function() {
+    const newName = prompt("Enter donor name:", donor.name);
+    if (newName === null || newName.trim() === "") return;
+
+    const newAge = prompt("Enter donor age:", donor.age);
+    if (newAge === null || newAge.trim() === "") return;
+
+    const ageNumber = Number(newAge);
+    if (!Number.isInteger(ageNumber) || ageNumber <= 0) {
+      alert("Please enter a valid age.");
+      return;
+    }
+
+    const newBloodGroup = prompt(
+      "Enter blood group:", donor.blood_group || donor.bloodGroup
+    );
+    if (newBloodGroup === null || newBloodGroup.trim() === "") return;
+
+    const newGender = prompt("Enter gender:", donor.gender);
+    if (newGender === null || newGender.trim() === "") return;
+
+    const newPhone = prompt("Enter phone number:", donor.phone);
+    if (newPhone === null || newPhone.trim() === "") return;
+
+    const newEmail = prompt("Enter email:", donor.email);
+    if (newEmail === null || newEmail.trim() === "") return;
+
+    const newCity = prompt("Enter city:", donor.city);
+    if (newCity === null || newCity.trim() === "") return;
+
+    const newAvailable = confirm(
+      "Is this donor available? OK = Yes, Cancel = No"
+    );
+
+    const updatedDonor = {
+      ...donor,
+      name: newName.trim(),
+      age: ageNumber,
+      blood_group: newBloodGroup.trim(),
+      gender: newGender.trim(),
+      phone: newPhone.trim(),
+      email: newEmail.trim(),
+      city: newCity.trim(),
+      available: newAvailable
+    };
+
+    try {
+      const response = await fetch(
+        "http://localhost:8081/api/donors/" + donor.id,
+        {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedDonor)
+        }
+      );
+
+      if (!response.ok) throw new Error("Update failed");
+
+      alert("Donor updated successfully!");
+      await loadDonors();
+    } catch (error) {
+      alert("Could not update donor. Please check the backend.");
+    }
+  });
+
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete Donor";
+  deleteButton.style.cssText =
+    "background:#8e1515;color:white;padding:10px 16px;border:0;border-radius:6px;cursor:pointer;";
+
+  deleteButton.addEventListener("click", async function() {
+    const confirmed = confirm(
+      "Are you sure you want to delete " + donor.name + "?"
+    );
+
+    if (!confirmed) return;
+
+    try {
+      const response = await fetch(
+        "http://localhost:8081/api/donors/" + donor.id,
+        { method: "DELETE" }
+      );
+
+      if (!response.ok) throw new Error("Delete failed");
+
+      alert("Donor deleted successfully!");
+      await loadDonors();
+    } catch (error) {
+      alert("Could not delete donor. Please check the backend.");
+    }
+  });
+
+  card.appendChild(name);
+  card.appendChild(details);
+  card.appendChild(editButton);
+  card.appendChild(deleteButton);
+  donorList.appendChild(card);
+});
+});
+
+document.getElementById("clearFilters").addEventListener("click", function() {
+  document.getElementById("searchBloodGroup").value = "";
+  document.getElementById("searchCity").value = "";
+  document.getElementById("searchAvailability").value = "";
+
+  loadDonors();
+});
+
+
+</script>
+</body>
+</html>
